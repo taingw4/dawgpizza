@@ -20,7 +20,7 @@ function renderPizzas() {
 	    instance.find('.pizza-name').html(pizza.name);
 	    instance.find('.pizza-description').html(pizza.description);
 	    instance.find('.pizza-prices').html('$ ' + pizza.prices[0] + ' / ' + pizza.prices[1] + ' / ' + pizza.prices[2]);
-	    instance.removeClass('.pizza-template');
+	    instance.removeClass('pizza-template');
         $('.pizzas').append(instance);
 	} 	
 }
@@ -35,7 +35,7 @@ function renderDrinks() {
     	instance = template.clone();
     	instance.find('.drink-name').html(drink.name + ' ');
     	instance.find('.drink-price').html('$' + drink.price);
-    	instance.removeClass('.drink-template');
+    	instance.removeClass('drink-template');
     	$('.drinks').append(instance);
 	} 
 }
@@ -50,7 +50,7 @@ function renderDesserts() {
     	instance = template.clone();
     	instance.find('.dessert-name').html(dessert.name + ' ');
     	instance.find('.dessert-price').html('$' + dessert.price);
-    	instance.removeClass('.dessert-template');
+    	instance.removeClass('dessert-template');
     	$('.desserts').append(instance);
 	} 
 }

@@ -18,7 +18,6 @@
 		<div class="tab-pane" id="menu">
 			<h2>Order Page</h2>
 			<article class="order col-md-8">
-	     		<h2>Menu</h2>
 	     		<p>We deliver within Seattle city limits from noon to 11:00pm. Cash or credit cards accepted for delivery.</p>
 	     		<p>No topping customization for online orders or alcholic drinks. Sorry!</p>
 				
@@ -31,25 +30,44 @@
 						<dd class="pizza-description"></dt>
 						<dd class="pizza-prices"></dd>
 					</dl>
+					<form action="http://dawgpizza.com/orders/" method="post">
+						<select name="size" class="size">
+							<option value='0'>Small (12")</option>
+							<option value='1'>Medium (14")</option>
+							<option value='2'>Large (17")</option>
+						</select>
+						<input type="text" name"quantity" value="1" class="quantity">
+						<button class="add-to-cart" type="button">add to cart</button>
+					</form>
 				</div>		
 
 				<div class="drinks"> 
 			        <h3>Drinks</h3>
 			    </div>
 			    <div class="drink-template">
-				    <dd><span class="drink-name"></span><span class="drink-price"></span></dd>
+				    <dd><span class="drink-name"></span><span class="drink-price"></span>
+				    	<form action="http://dawgpizza.com/orders/" method="post">
+				    		<input type="text" name"quantity" value="1" class="quantity">
+				    		<button class="add-to-cart" type="button">add to cart</button>
+				    	</form>
+				    </dd>
+				    
 				</div>
 
 				<div class="desserts">
 					<h3>Desserts</h3>
 				</div>
 				<div class="dessert-template">
-					<dd><span class="dessert-name"></span><span class="dessert-price"></span></dd>
+					<dd><span class="dessert-name"></span><span class="dessert-price"></span>
+						<form action="http://dawgpizza.com/orders/" method="post">
+				    		<input type="text" name"quantity" value="1" class="quantity">
+				    		<button class="add-to-cart" type="button">add to cart</button>
+				    	</form>
+				    </dd>
 				</div>							
 	     	</article> <!-- menu -->	 
 	     	<div class="cart col-md-4">
 	     		<h3>Your Cart:</h3>
-
 	     	</div>
 	     </div>
 		

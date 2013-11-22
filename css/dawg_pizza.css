@@ -128,9 +128,41 @@ ul {
 	margin-bottom: 20px;
 	box-shadow: 5px 5px 1px gray;
 	padding: 20px;
-	padding-top: 0px;
+	padding-bottom: 50px;
+}
+
+.order dd {
+	margin-bottom: 10px;
 }
 
 .cart {
 	text-align: center;
+}
+
+.quantity {
+	position: absolute;
+	left: 25%;
+	width: 25px;
+	text-align: center;
+}
+
+.add-to-cart {
+	position: absolute;
+	left: 30%;
+}
+
+form {
+	display: inline;
+}
+
+.pizza-template {
+	display: none;
+}
+
+.drink-template {
+	display: none;
+}
+
+.dessert-template {
+	display: none;
 }
