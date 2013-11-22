@@ -1,0 +1,128 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900);
+
+.logo {
+	height: 125px;
+	width: 500px;
+}
+
+body {
+	background-image: url(../img/pizza1.jpg);
+	background-attachment: fixed;
+	color: white;
+	font-family: "Raleway", sans-serif;
+}
+
+.container {
+	position: relative;
+	margin-bottom: 50px;
+	padding-bottom: 5px;
+}
+
+#home {
+	font-size: 125%;
+}
+
+#menu h2 {
+	font-size: 300%;
+	border-bottom: solid 1px black;
+}
+
+.tab-content, .tab-pane, header, footer, nav {
+	z-index: 5;
+	position: relative;
+}
+
+.background {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	background-color: #314046;
+	z-index: 1;
+	opacity: .75;
+}
+
+footer {
+	border-top: solid 1px white;
+	font-size: 11pt;
+	clear: both;
+	padding-top: 10px;
+}
+
+.tab-pane {
+	margin-bottom: 25px;
+}
+
+footer ul, #home ul {
+	list-style-type: none;
+}
+
+#home ul {
+	padding-left: 0px;
+}
+
+.pizza, .pizza-oven { 
+	border: 5px solid #EEE;
+    border-radius: 2px;
+}
+
+.pizza {
+	float: right;
+	height: 350px;
+	width: 450px;
+	margin-bottom: 50px;
+}
+
+/*.pizza-order {
+	float: right;
+	opacity: .65;
+	height: 100px;
+	width: 250px;
+	margin-top: 25px;
+	margin-right: 25px;
+	border: 2px solid #EEE;
+	border-radius: 1px;
+}
+
+.pizza-order:hover {
+	opacity: 1;
+}*/
+
+.menu {
+	text-align: center;
+	float: left;
+	margin-right: 15%;
+	margin-left: 15%;
+	background-image: url(../img/handmadepaper.png);
+	color: black;
+	padding: 20px;
+	margin-bottom: 20px;
+	box-shadow: 5px 5px 1px gray;
+}
+
+.pizza-oven {
+	float: right;
+	height: 250px;
+	width: 350px;
+	margin-left: 50px;
+	clear: right;
+	margin-bottom: 50px;
+}
+
+iframe {
+	float: right;
+	margin-left: 50px;
+	margin-bottom: 20px;	
+	opacity: .9;
+}
+
+iframe:hover {
+	opacity: 1;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+	margin-left: 0;
+}
