@@ -5,6 +5,11 @@
 	width: 500px;
 }
 
+.order-now {
+	float: right;
+	display: block;
+}
+
 body {
 	background-image: url(../img/pizza1.jpg);
 	background-attachment: fixed;
@@ -74,31 +79,20 @@ footer ul, #home ul {
 	margin-bottom: 50px;
 }
 
-/*.pizza-order {
-	float: right;
-	opacity: .65;
-	height: 100px;
-	width: 250px;
-	margin-top: 25px;
-	margin-right: 25px;
-	border: 2px solid #EEE;
-	border-radius: 1px;
-}
-
-.pizza-order:hover {
-	opacity: 1;
-}*/
-
 .menu {
 	text-align: center;
-	float: left;
 	margin-right: 15%;
 	margin-left: 15%;
 	background-image: url(../img/handmadepaper.png);
 	color: black;
 	padding: 20px;
+	padding-top: 0px;
 	margin-bottom: 20px;
 	box-shadow: 5px 5px 1px gray;
+}
+
+.col-md-2 {
+	background-color: white;
 }
 
 .pizza-oven {
@@ -125,4 +119,18 @@ ul {
 	list-style-type: none;
 	padding-left: 0;
 	margin-left: 0;
+}
+
+.order {
+	text-align: left;
+	background-image: url(../img/handmadepaper.png);
+	color: black;
+	margin-bottom: 20px;
+	box-shadow: 5px 5px 1px gray;
+	padding: 20px;
+	padding-top: 0px;
+}
+
+.cart {
+	text-align: center;
 }

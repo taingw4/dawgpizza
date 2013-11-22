@@ -1,9 +1,5 @@
-/* menu.js generates the menu for Dawg Pizza */
 
 $(function() {
-	$('.order-now').click(function() {
-		window.location.href="order.html";
-	});
 	renderPizzas();
 	renderDrinks();      
 	renderDesserts();
@@ -19,7 +15,7 @@ function renderPizzas() {
 	    instance = template.clone();
 	    instance.find('.pizza-name').html(pizza.name);
 	    instance.find('.pizza-description').html(pizza.description);
-	    instance.find('.pizza-prices').html('$ ' + pizza.prices[0] + ' / ' + pizza.prices[1] + ' / ' + pizza.prices[2]);
+	    //instance.find('.pizza-prices').html('$ ' + pizza.prices[0] + ' / ' + pizza.prices[1] + ' / ' + pizza.prices[2]);
 	    instance.removeClass('.pizza-template');
         $('.pizzas').append(instance);
 	} 	
@@ -30,7 +26,7 @@ function renderDrinks() {
 	var drink;
 	var instance;
 	var template = $('.drink-template');
-	for (idx = 0; idx < com.dawgpizza.menu.drinks.length; ++idx) {
+	for (idx = 0; idx < com.dawgpizza.menu.drinks.length - 1; ++idx) {
     	drink = com.dawgpizza.menu.drinks[idx];
     	instance = template.clone();
     	instance.find('.drink-name').html(drink.name + ' ');

@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+	<title>Dawg Pizza Order Page</title>
+	<link rel="stylesheet" type="text/css" href="css/dawg_pizza.css">
+	<meta name="author" content="Willie Taing">
+	<meta charset="UTF-8">
+	<!-- bootstrap -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <!-- custom style sheet -->
+    <link rel="stylesheet" href="css/dawg_pizza.css">
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1><a href="index.html"><img src="img/logo.png" alt="logo" class="logo"></a></br></h1>
+		</header>
+		<div class="tab-pane" id="menu">
+			<h2>Order Page</h2>
+			<article class="order col-md-8">
+	     		<h2>Menu</h2>
+	     		<p>We deliver within Seattle city limits from noon to 11:00pm. Cash or credit cards accepted for delivery.</p>
+	     		<p>No topping customization for online orders or alcholic drinks. Sorry!</p>
+				
+				<div class="pizzas">	
+					<h3>Pizzas</h3>
+				</div>
+				<div class="pizza-template">	
+					<dl>
+						<dt class="pizza-name"></dt>
+						<dd class="pizza-description"></dt>
+						<dd class="pizza-prices"></dd>
+					</dl>
+				</div>		
+
+				<div class="drinks"> 
+			        <h3>Drinks</h3>
+			    </div>
+			    <div class="drink-template">
+				    <dd><span class="drink-name"></span><span class="drink-price"></span></dd>
+				</div>
+
+				<div class="desserts">
+					<h3>Desserts</h3>
+				</div>
+				<div class="dessert-template">
+					<dd><span class="dessert-name"></span><span class="dessert-price"></span></dd>
+				</div>							
+	     	</article> <!-- menu -->	 
+	     	<div class="cart col-md-4">
+	     		<h3>Your Cart:</h3>
+
+	     	</div>
+	     </div>
+		
+		<footer>
+			<p>
+				Call us for dlivery: 206-555-1212</br>
+				&copy Dawg Pizza 2013.
+			</p>
+		</footer>
+		<div class="background"></div>
+	</div> <!-- container -->
+	
+	<!-- hot links to Bootstrap JavaScript and jQuery (required by Bootstrap) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <!-- links to javascript to generate menu -->
+    <script src="http://www.dawgpizza.com/orders/menu.js"></script>
+    <script src="js/order.js"></script>
+</body>
+</html>
