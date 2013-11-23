@@ -29,7 +29,7 @@
 				<div class="pizzas">	
 					<h3>Pizzas</h3>
 				</div>
-				<div class="pizza-template">	
+				<div class="pizza-template hide">	
 					<dl>
 						<dt class="pizza-name"></dt>
 						<dd class="pizza-description"></dt>
@@ -49,11 +49,11 @@
 				<div class="drinks"> 
 			        <h3>Drinks</h3>
 			    </div>
-			    <div class="drink-template">
+			    <div class="drink-template hide">
 				    <dd><span class="drink-name"></span><span class="drink-price"></span>
 				    	<form>
-				    		<input type="text" value="1" class="quantity" item-type="drink">
-				    		<button class="add-other" type="button">add to cart</button>
+				    		<input type="text" value="1" class="quantity">
+				    		<button class="add-other" type="button"  item-type="drink">add to cart</button>
 				    	</form>
 				    </dd>
 				    
@@ -62,24 +62,20 @@
 				<div class="desserts">
 					<h3>Desserts</h3>
 				</div>
-				<div class="dessert-template">
+				<div class="dessert-template hide">
 					<dd><span class="dessert-name"></span><span class="dessert-price"></span>
 						<form>
-				    		<input type="text" value="1" class="quantity" item-type="dessert">
-				    		<button class="add-other" type="button">add to cart</button>
+				    		<input type="text" value="1" class="quantity">
+				    		<button class="add-other" type="button" item-type="dessert">add to cart</button>
 				    	</form>
 				    </dd>
 				</div>							
 	     	</article> <!-- menu -->	 
 	     	<div class="cart col-md-4">	     		
-	     		<div class="cart-container">
-	     			<h3>Your Cart:</h3>
-	     		</div>
-	     		<div class="cart-template">
-	     			<p class='cart-item'></p>
-	     		</div>
+	     		<h3>Your Cart:</h3>
+	     		<div class="cart-container"></div>
 	     		<form action="http://dawgpizza.com/orders/" method="post">
-	     			<button type="submit">Order</button>
+	     			<button class="order-button hide" type="submit">Order</button>
 	     		</form>
 
 	     	</div>

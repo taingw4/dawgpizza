@@ -136,7 +136,11 @@ ul {
 }
 
 .cart {
-	text-align: center;
+	width: 300px;
+	left: 67%;
+	top: 10px;
+	position: fixed;
+	border: 1px solid white;
 }
 
 .quantity {
@@ -155,18 +159,6 @@ form {
 	display: inline;
 }
 
-.pizza-template {
-	display: none;
-}
-
-.drink-template {
-	display: none;
-}
-
-.dessert-template {
-	display: none;
-}
-
-.cart-template {
+.hide {
 	display: none;
 }

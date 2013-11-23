@@ -1,19 +1,23 @@
+var cart = {
+	name: null,
+    address1: null,
+    zip: null,
+    phone: null,
+    items: [] //empty array
+}; //cart data
 
 $(function() {
 	renderPizzas();
 	renderDrinks();      
 	renderDesserts();
-	var cart = {
-    	name: null,
-        address1: null,
-        zip: null,
-        phone: null,
-        items: [] //empty array
-    }; //cart data
+
 	$('.add-pizza').click(addPizza);
 	$('.add-other').click(addOther);
 	$('.submit').click(order);
 });
+
+
+
 
 function renderPizzas() {
 	var idx;
@@ -35,6 +39,7 @@ function renderPizzas() {
 	    instance.find('#large').val(pizza.prices[2]);
 	    instance.find('.add-pizza').attr('name',pizza.name);
 	    instance.removeClass('pizza-template');
+	    instance.removeClass('hide');
         $('.pizzas').append(instance);
 	} 	
 	$('.pizza:last-child').empty();
@@ -48,12 +53,14 @@ function renderDrinks() {
 	for (idx = 0; idx < com.dawgpizza.menu.drinks.length - 1; ++idx) {
     	drink = com.dawgpizza.menu.drinks[idx];
     	instance = template.clone();
+    	instance.find('form').attr('name',drink.name);
     	instance.find('.drink-name').html(drink.name + ' ');
     	instance.find('.drink-price').html('$' + drink.price);
-    	instance.find('.quantity').attr('name',drink.name);
-    	instance.find('.quantity').attr('price',drink.price);
+    	//instance.find('.quantity').attr('name',drink.name);
+    	instance.find('.add-other').attr('price',drink.price);
     	instance.find('.add-other').attr('name',drink.name);
     	instance.removeClass('drink-template');
+    	instance.removeClass('hide');
     	$('.drinks').append(instance);
 	} 
 }
@@ -66,25 +73,19 @@ function renderDesserts() {
 	for (idx = 0; idx < com.dawgpizza.menu.desserts.length; ++idx) {
     	dessert = com.dawgpizza.menu.desserts[idx];
     	instance = template.clone();
+    	instance.find('form').attr('name',dessert.name);
     	instance.find('.dessert-name').html(dessert.name + ' ');
     	instance.find('.dessert-price').html('$' + dessert.price);
-    	instance.find('.quantity').attr('name',dessert.name);
-    	instance.find('.quantity').attr('price',dessert.price);
+    	//instance.find('.quantity').attr('name',dessert.name);
+    	instance.find('.add-other').attr('price',dessert.price);
     	instance.find('.add-other').attr('name',dessert.name);
     	instance.removeClass('dessert-template');
+    	instance.removeClass('hide');
     	$('.desserts').append(instance);
 	} 
 }
 
 function addPizza() {
-	var cart = {
-    	name: null,
-        address1: null,
-        zip: null,
-        phone: null,
-        items: [] //empty array
-    }; //cart data
-
 	var name = this.getAttribute('name');
 	console.log(this.getAttribute('item-type'));
 	console.log(name);
@@ -100,32 +101,50 @@ function addPizza() {
 	}
 	cart.items.push(newCartItem);
 	renderCart(cart, $('.cart'));
+	$('.order-button').removeClass('hide');
 }
 
 function addOther() {
+	var name = this.getAttribute('name');
+	console.log(this.getAttribute('item-type'));
+	console.log(name);
+	//console.log($("form[name='" + name + "'] .size").val());
+	console.log($("form[name='" + name + "'] .quantity").val());
 	var newCartItem = {
-		type: $('.quantity').getAttribute('item-type'),
-		name: $('.quantity').getAttribute('name'),
-		price: $('.quantity').getAttribute('price'),
-		quantity: $('.quantity').getAttribute('value')
+		type: this.getAttribute('item-type'),
+		name: name,
+		size: ' ',
+		price: this.getAttribute('price'),
+		quantity: $("form[name='" + name + "'] .quantity").val()
 	}
 	cart.items.push(newCartItem);
-	renderCart(cart, $('.cart-container'));
+	renderCart(cart);
+	$('.order-button').removeClass('hide');
 }
 
-function renderCart(cart, container) {
+//function renderCart(cart, container) {
+function renderCart(cart) {
 	var idx;
 	var item;
-	var instance;
-	var template = $('.cart-template');
-	//container.empty();
+	//var instance;
+	//var template = $('.cart-template');
+	$('.cart-container').empty();
 	for (idx = 0; idx < cart.items.length; idx++) {
+		item = cart.items[idx];
+		$('.cart-container').append('<p>' + 
+				item.quantity + ' ' + 
+				item.size + ' ' + 
+				item.name +  ' ' + 
+				'$' + item.price + 
+				'</p>');
+	}
+	/*for (idx = 0; idx < cart.items.length; idx++) {
 		item = cart.items[idx];
 		instance = template.clone();
 		instance.find('.cart-item').html(item.type + ' ' + item.name + ' ' + item.size + ' ' + item.price + ' ' + item.quantity);
 		instance.removeClass('cart-template');
 		$('cart-container').append(instance);
-	}
+	}*/
 }
 
 function order() {
