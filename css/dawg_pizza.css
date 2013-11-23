@@ -162,3 +162,13 @@ form {
 .hide {
 	display: none;
 }
+
+.total {
+	border-top: solid 1px white;
+	padding-top: 10px;
+	margin-bottom: 10px;
+}
+
+.item-price {
+	float: right;
+}

@@ -56,7 +56,6 @@ function renderDrinks() {
     	instance.find('form').attr('name',drink.name);
     	instance.find('.drink-name').html(drink.name + ' ');
     	instance.find('.drink-price').html('$' + drink.price);
-    	//instance.find('.quantity').attr('name',drink.name);
     	instance.find('.add-other').attr('price',drink.price);
     	instance.find('.add-other').attr('name',drink.name);
     	instance.removeClass('drink-template');
@@ -76,7 +75,6 @@ function renderDesserts() {
     	instance.find('form').attr('name',dessert.name);
     	instance.find('.dessert-name').html(dessert.name + ' ');
     	instance.find('.dessert-price').html('$' + dessert.price);
-    	//instance.find('.quantity').attr('name',dessert.name);
     	instance.find('.add-other').attr('price',dessert.price);
     	instance.find('.add-other').attr('name',dessert.name);
     	instance.removeClass('dessert-template');
@@ -102,13 +100,13 @@ function addPizza() {
 	cart.items.push(newCartItem);
 	renderCart(cart, $('.cart'));
 	$('.order-button').removeClass('hide');
+	$('.total').removeClass('hide');
 }
 
 function addOther() {
 	var name = this.getAttribute('name');
 	console.log(this.getAttribute('item-type'));
 	console.log(name);
-	//console.log($("form[name='" + name + "'] .size").val());
 	console.log($("form[name='" + name + "'] .quantity").val());
 	var newCartItem = {
 		type: this.getAttribute('item-type'),
@@ -120,31 +118,32 @@ function addOther() {
 	cart.items.push(newCartItem);
 	renderCart(cart);
 	$('.order-button').removeClass('hide');
+	$('.total').removeClass('hide');
 }
 
-//function renderCart(cart, container) {
 function renderCart(cart) {
 	var idx;
 	var item;
-	//var instance;
-	//var template = $('.cart-template');
+	var instance;
+	var template = $('.item-template')
+	var total = 0;
 	$('.cart-container').empty();
 	for (idx = 0; idx < cart.items.length; idx++) {
 		item = cart.items[idx];
-		$('.cart-container').append('<p>' + 
-				item.quantity + ' ' + 
-				item.size + ' ' + 
-				item.name +  ' ' + 
-				'$' + item.price + 
-				'</p>');
+		instance=template.clone();
+		instance.find('.item-info').html(
+				item.quantity + ' ' +
+				item.size + ' ' +
+				item.name + ' <span class="item-price"></span>'
+		);
+		var price = parseInt(item.price).toFixed(2);
+		instance.find('.item-price').html('$' + price);
+		total += parseInt(item.price);
+		instance.removeClass('item-template');
+    	instance.removeClass('hide');
+    	$('.cart-container').append(instance);
 	}
-	/*for (idx = 0; idx < cart.items.length; idx++) {
-		item = cart.items[idx];
-		instance = template.clone();
-		instance.find('.cart-item').html(item.type + ' ' + item.name + ' ' + item.size + ' ' + item.price + ' ' + item.quantity);
-		instance.removeClass('cart-template');
-		$('cart-container').append(instance);
-	}*/
+	$('.total').html('$' + total.toFixed(2));
 }
 
 function order() {
