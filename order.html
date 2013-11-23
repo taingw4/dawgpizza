@@ -20,6 +20,11 @@
 			<article class="order col-md-8">
 	     		<p>We deliver within Seattle city limits from noon to 11:00pm. Cash or credit cards accepted for delivery.</p>
 	     		<p>No topping customization for online orders or alcholic drinks. Sorry!</p>
+	     		<ul>
+					<li>Small (12")</li>
+					<li>Medium (14")</li>
+					<li>Large (17")</li>
+				</ul>
 				
 				<div class="pizzas">	
 					<h3>Pizzas</h3>
@@ -30,14 +35,14 @@
 						<dd class="pizza-description"></dt>
 						<dd class="pizza-prices"></dd>
 					</dl>
-					<form action="http://dawgpizza.com/orders/" method="post">
-						<select name="size" class="size">
-							<option value='0'>Small (12")</option>
-							<option value='1'>Medium (14")</option>
-							<option value='2'>Large (17")</option>
+					<form>
+						<select name="size">
+							<option class="size" id="small"></option>
+							<option class="size" id="medium"></option>
+							<option class="size" id="large"></option>
 						</select>
-						<input type="text" name"quantity" value="1" class="quantity">
-						<button class="add-to-cart" type="button">add to cart</button>
+						<input type="text" value="1" class="quantity" item-type="pizza">
+						<button class="add-pizza" type="button">add to cart</button>
 					</form>
 				</div>		
 
@@ -46,9 +51,9 @@
 			    </div>
 			    <div class="drink-template">
 				    <dd><span class="drink-name"></span><span class="drink-price"></span>
-				    	<form action="http://dawgpizza.com/orders/" method="post">
-				    		<input type="text" name"quantity" value="1" class="quantity">
-				    		<button class="add-to-cart" type="button">add to cart</button>
+				    	<form>
+				    		<input type="text" value="1" class="quantity" item-type="drink">
+				    		<button class="add-other" type="button">add to cart</button>
 				    	</form>
 				    </dd>
 				    
@@ -59,15 +64,24 @@
 				</div>
 				<div class="dessert-template">
 					<dd><span class="dessert-name"></span><span class="dessert-price"></span>
-						<form action="http://dawgpizza.com/orders/" method="post">
-				    		<input type="text" name"quantity" value="1" class="quantity">
-				    		<button class="add-to-cart" type="button">add to cart</button>
+						<form>
+				    		<input type="text" value="1" class="quantity" item-type="dessert">
+				    		<button class="add-other" type="button">add to cart</button>
 				    	</form>
 				    </dd>
 				</div>							
 	     	</article> <!-- menu -->	 
-	     	<div class="cart col-md-4">
-	     		<h3>Your Cart:</h3>
+	     	<div class="cart col-md-4">	     		
+	     		<div class="cart-container">
+	     			<h3>Your Cart:</h3>
+	     		</div>
+	     		<div class="cart-template">
+	     			<p class='cart-item'></p>
+	     		</div>
+	     		<form action="http://dawgpizza.com/orders/" method="post">
+	     			<button type="submit">Order</button>
+	     		</form>
+
 	     	</div>
 	     </div>
 		
