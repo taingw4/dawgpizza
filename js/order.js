@@ -100,7 +100,7 @@ function addPizza() {
 	cart.items.push(newCartItem);
 	renderCart(cart, $('.cart'));
 	$('.order-button').removeClass('hide');
-	$('.total').removeClass('hide');
+	$('.totals').removeClass('hide');
 }
 
 function addOther() {
@@ -118,7 +118,7 @@ function addOther() {
 	cart.items.push(newCartItem);
 	renderCart(cart);
 	$('.order-button').removeClass('hide');
-	$('.total').removeClass('hide');
+	$('.totals').removeClass('hide');
 }
 
 function renderCart(cart) {
@@ -126,7 +126,7 @@ function renderCart(cart) {
 	var item;
 	var instance;
 	var template = $('.item-template')
-	var total = 0;
+	var subtotal = 0;
 	$('.cart-container').empty();
 	for (idx = 0; idx < cart.items.length; idx++) {
 		item = cart.items[idx];
@@ -138,12 +138,16 @@ function renderCart(cart) {
 		);
 		var price = parseInt(item.price).toFixed(2);
 		instance.find('.item-price').html('$' + price);
-		total += parseInt(item.price);
+		subtotal += parseInt(item.price);
 		instance.removeClass('item-template');
     	instance.removeClass('hide');
     	$('.cart-container').append(instance);
 	}
-	$('.total').html('$' + total.toFixed(2));
+	$('.subtotal').html('Subtotal: ' + '<span class=total-price>$' + subtotal.toFixed(2) + '</span>');
+	var tax = (.095 * subtotal).toFixed(2);
+	$('.tax').html('Tax: <span class=total-price>$' + tax + '</span>');
+	var total = subtotal + tax;
+	$('.total').html('Total: <span class=total-price> $' + total + '</span>');
 }
 
 function order() {

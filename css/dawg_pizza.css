@@ -163,12 +163,14 @@ form {
 	display: none;
 }
 
-.total {
+.totals {
 	border-top: solid 1px white;
 	padding-top: 10px;
 	margin-bottom: 10px;
 }
 
-.item-price {
+.item-price, .total-price, .order-button {
 	float: right;
+	clear: right;
 }
+
