@@ -137,7 +137,8 @@ function renderCart(cart) {
 				item.name + ' <span class="item-price"></span>'
 		);
 		var price = parseInt(item.price).toFixed(2);
-		instance.find('.item-price').html('$' + price);
+		price = price * item.quantity;
+		instance.find('.item-price').html('$' + price.toFixed(2));
 		subtotal += parseInt(item.price);
 		instance.removeClass('item-template');
     	instance.removeClass('hide');
