@@ -136,19 +136,19 @@ function renderCart(cart) {
 				item.size + ' ' +
 				item.name + ' <span class="item-price"></span>'
 		);
-		var price = parseInt(item.price).toFixed(2);
-		price = price * item.quantity;
+		var price = parseInt(item.price) * item.quantity;
+		//price = price * item.quantity;
 		instance.find('.item-price').html('$' + price.toFixed(2));
-		subtotal += parseInt(item.price);
+		subtotal += price;
 		instance.removeClass('item-template');
     	instance.removeClass('hide');
     	$('.cart-container').append(instance);
 	}
 	$('.subtotal').html('Subtotal: ' + '<span class=total-price>$' + subtotal.toFixed(2) + '</span>');
-	var tax = (.095 * subtotal).toFixed(2);
-	$('.tax').html('Tax: <span class=total-price>$' + tax + '</span>');
+	var tax = (.095 * subtotal);
+	$('.tax').html('Tax: <span class=total-price>$' + tax.toFixed(2) + '</span>');
 	var total = subtotal + tax;
-	$('.total').html('Total: <span class=total-price> $' + total + '</span>');
+	$('.total').html('Total: <span class=total-price> $' + total.toFixed(2) + '</span>');
 }
 
 function order() {
