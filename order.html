@@ -78,7 +78,7 @@
 	     		<div class="cart-container"></div>	     		
 	     		<div class="item-template hide">
 	     			<p class="item-info">
-	     				<span class="item-price"></span>
+	     				<span class="item-price"></span></br>
 	     				<button class="remove-button" type="button">remove</button>
 	     			</p>
 	     		</div>	     		
@@ -89,9 +89,16 @@
 	     				<li class="total"></li>
 	     			</ul>
 	     		</div>
-	     		<form action="http://dawgpizza.com/orders/" method="post">
+	     		<form action="http://dawgpizza.com/orders/" method="post" class="cart-form" name="cart">
+	     			<p>Name: <input type="text" class="name" required></p>
+	     			<p>Address line 1: <input type='text' class='address1' required></p>
+	     			<p>Address line 2: <input type='text' class='address2'></p>
+	     			<p>Zip: <input type='text' class='zip' required></p>
+	     			<p>Phone: <input type='text' class='phone' required></p>
 	     			<button class="order-button hide" type="submit">Order</button>
+	     			<input type="hidden" name="cart">
 	     		</form>
+
 	     	</div>
 
 	     </div>

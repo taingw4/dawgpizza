@@ -3,7 +3,8 @@ var cart = {
     address1: null,
     zip: null,
     phone: null,
-    items: [] //empty array
+    items: [], //empty array
+    total: null
 }; //cart data
 
 $(function() {
@@ -138,11 +139,24 @@ function renderCart(cart) {
 	var tax = (.095 * subtotal);
 	$('.tax').html('Tax: <span class=total-price>$' + tax.toFixed(2) + '</span>');
 	var total = subtotal + tax;
+	cart.total = total;
 	$('.total').html('Total: <span class=total-price> $' + total.toFixed(2) + '</span>');
 }
 
 function order() {
-	alert('order');
+	if (cart.total >= 20) {
+		cart.name = $('.name').val();
+		cart.address1 = $('.address1').val();
+		cart.zip = $('.zip').val();
+		cart.phone = $('.phone').val();
+
+		postCart(cart, $('.cart-form'));
+	}	
+}
+
+function postCart(cart, cartForm) {
+	cartForm.find('input[name="cart"]').val(JSON.stringify(cart));
+	cartForm.submit();
 }
 
 function remove() {

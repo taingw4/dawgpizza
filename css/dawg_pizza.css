@@ -174,3 +174,6 @@ form {
 	clear: right;
 }
 
+.cart-form input{
+	float: right;
+}
