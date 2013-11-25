@@ -92,7 +92,6 @@ function addPizza() {
 	}
 	cart.items.push(newCartItem);
 	renderCart(cart);
-	$('.order-button').removeClass('hide');
 	$('.totals').removeClass('hide');
 }
 
@@ -107,7 +106,6 @@ function addOther() {
 	}
 	cart.items.push(newCartItem);
 	renderCart(cart);
-	$('.order-button').removeClass('hide');
 	$('.totals').removeClass('hide');
 }
 
@@ -140,23 +138,26 @@ function renderCart(cart) {
 	$('.tax').html('Tax: <span class=total-price>$' + tax.toFixed(2) + '</span>');
 	var total = subtotal + tax;
 	cart.total = total;
+	if (cart.total >= 20) {
+		$('.order-button').removeClass('hide');
+	} else {
+		$('.order-button').addClass('hide');
+	}
 	$('.total').html('Total: <span class=total-price> $' + total.toFixed(2) + '</span>');
 }
 
 function order() {
-	if (cart.total >= 20) {
-		cart.name = $('.name').val();
-		cart.address1 = $('.address1').val();
-		cart.zip = $('.zip').val();
-		cart.phone = $('.phone').val();
-
-		postCart(cart, $('.cart-form'));
-	}	
+	cart.name = $('.name').val();
+	cart.address1 = $('.address1').val();
+	cart.zip = $('.zip').val();
+	cart.phone = $('.phone').val();
+	postCart(cart, $('.cart-form'));	
 }
 
 function postCart(cart, cartForm) {
 	cartForm.find('input[name="cart"]').val(JSON.stringify(cart));
-	cartForm.submit();
+	cartForm.find('[type="submit"]').trigger("click");
+	//cartForm.submit();
 }
 
 function remove() {
