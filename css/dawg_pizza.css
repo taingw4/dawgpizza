@@ -137,9 +137,7 @@ ul {
 
 .cart {
 	width: 300px;
-	left: 67%;
-	top: 10px;
-	position: fixed;
+	margin-left: 20px;
 	border: 1px solid white;
 }
 

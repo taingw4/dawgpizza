@@ -15,6 +15,10 @@ $(function() {
 	$('.add-pizza').click(addPizza);
 	$('.add-other').click(addOther);
 	$('.order-button').click(order);
+	$('.empty-cart').click(function() {
+		cart.items = [];
+		renderCart(cart);
+	});
 });
 
 function renderPizzas() {
@@ -143,6 +147,11 @@ function renderCart(cart) {
 	} else {
 		$('.order-button').addClass('hide');
 	}
+	if (cart.items.length > 0) {
+		$('.empty-cart').removeClass('hide');
+	} else {
+		$('.empty-cart').addClass('hide');
+	}
 	$('.total').html('Total: <span class=total-price> $' + total.toFixed(2) + '</span>');
 }
 
@@ -157,7 +166,6 @@ function order() {
 function postCart(cart, cartForm) {
 	cartForm.find('input[name="cart"]').val(JSON.stringify(cart));
 	cartForm.find('[type="submit"]').trigger("click");
-	//cartForm.submit();
 }
 
 function remove() {
