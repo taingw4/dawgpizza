@@ -13,11 +13,9 @@ $(function() {
 
 	$('.add-pizza').click(addPizza);
 	$('.add-other').click(addOther);
-	$('.submit').click(order);
+	$('.order-button').click(order);
+	$('.remove-button').click(remove);
 });
-
-
-
 
 function renderPizzas() {
 	var idx;
@@ -85,11 +83,6 @@ function renderDesserts() {
 
 function addPizza() {
 	var name = this.getAttribute('name');
-	console.log(this.getAttribute('item-type'));
-	console.log(name);
-	console.log($("form[name='" + name + "'] .size :selected").attr('id'));
-	console.log($("form[name='" + name + "'] .size").val());
-	console.log($("form[name='" + name + "'] .quantity").val());
 	var newCartItem = {
 		type: this.getAttribute('item-type'),
 		name: name,
@@ -98,16 +91,13 @@ function addPizza() {
 		quantity: $("form[name='" + name + "'] .quantity").val()
 	}
 	cart.items.push(newCartItem);
-	renderCart(cart, $('.cart'));
+	renderCart(cart);
 	$('.order-button').removeClass('hide');
 	$('.totals').removeClass('hide');
 }
 
 function addOther() {
 	var name = this.getAttribute('name');
-	console.log(this.getAttribute('item-type'));
-	console.log(name);
-	console.log($("form[name='" + name + "'] .quantity").val());
 	var newCartItem = {
 		type: this.getAttribute('item-type'),
 		name: name,
@@ -131,14 +121,14 @@ function renderCart(cart) {
 	for (idx = 0; idx < cart.items.length; idx++) {
 		item = cart.items[idx];
 		instance=template.clone();
-		instance.find('.item-info').html(
+		instance.find('.item-info').prepend(
 				item.quantity + ' ' +
 				item.size + ' ' +
-				item.name + ' <span class="item-price"></span>'
+				item.name
 		);
 		var price = parseInt(item.price) * item.quantity;
-		//price = price * item.quantity;
 		instance.find('.item-price').html('$' + price.toFixed(2));
+		instance.find('.remove-button').attr('index', idx);
 		subtotal += price;
 		instance.removeClass('item-template');
     	instance.removeClass('hide');
@@ -152,5 +142,12 @@ function renderCart(cart) {
 }
 
 function order() {
+	alert('order');
+}
 
+function remove() {
+	alert('remove');
+	var index = this.getAttribute('index');
+	cart.items.splice(index, 1);
+	renderCart(cart);	
 }
