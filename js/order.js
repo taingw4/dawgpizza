@@ -14,7 +14,6 @@ $(function() {
 	$('.add-pizza').click(addPizza);
 	$('.add-other').click(addOther);
 	$('.order-button').click(order);
-	$('.remove-button').click(remove);
 });
 
 function renderPizzas() {
@@ -129,6 +128,7 @@ function renderCart(cart) {
 		var price = parseInt(item.price) * item.quantity;
 		instance.find('.item-price').html('$' + price.toFixed(2));
 		instance.find('.remove-button').attr('index', idx);
+		instance.find('.remove-button').click(remove);
 		subtotal += price;
 		instance.removeClass('item-template');
     	instance.removeClass('hide');
@@ -146,7 +146,6 @@ function order() {
 }
 
 function remove() {
-	alert('remove');
 	var index = this.getAttribute('index');
 	cart.items.splice(index, 1);
 	renderCart(cart);	
